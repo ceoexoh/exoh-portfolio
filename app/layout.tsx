@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -19,9 +19,21 @@ const body = localFont({
 export const metadata: Metadata = {
   title: "EXOH — Tony-onuoha Munachiso Osaretin",
   description:
-    "Mechatronics Engineering student, technology enthusiast and creator of PrepUNIBEN.",
+    "Mechatronics Engineering student at the University of Benin, web developer and creator of PrepUNIBEN.",
   metadataBase: new URL("https://aboutexoh.vercel.app"),
   icons: { icon: "/favicon.svg" },
+  openGraph: {
+    title: "EXOH — Tony-onuoha Munachiso Osaretin",
+    description:
+      "Mechatronics student, web developer and creator of PrepUNIBEN.",
+    type: "website",
+    images: [{ url: "/mascot.png", width: 1254, height: 1254, alt: "Exoh's mascot" }],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a0c0b",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -1,36 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #f5f5f2;
-  --paper-2: #ecece7;
-  --ink: #121413;
-  --slate: #35405a;
-  --night: #101312;
+  --base: #0a0c0b;
+  --panel: #111513;
+  --panel-2: #171c19;
+  --rule: rgba(236, 236, 231, 0.12);
+  --ink: #ecece7;
+  --muted: rgba(236, 236, 231, 0.64);
+  --faint: rgba(236, 236, 231, 0.4);
+  --accent: #4d84ff;
+  color-scheme: dark;
 }
 
 @theme inline {
-  --color-paper: var(--paper);
-  --color-paper-2: var(--paper-2);
+  --color-canvas: var(--base);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-rule: var(--rule);
   --color-ink: var(--ink);
-  --color-slate: var(--slate);
-  --color-night: var(--night);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
 }
 
 body {
-  background: var(--paper);
+  background: var(--base);
   color: var(--ink);
   font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
 }
 
 :focus-visible {
-  outline: 2px solid currentColor;
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .display {
@@ -41,16 +56,38 @@ body {
   letter-spacing: -0.005em;
 }
 
-.outline-text {
-  color: transparent;
-  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3);
+/* Faint dotted engineering-paper grid, fading out toward the bottom. */
+.grid-bg {
+  background-image: radial-gradient(rgba(236, 236, 231, 0.09) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
 }
 
-/* One orchestrated moment: the hero settles in on load. */
+.glow {
+  background: radial-gradient(closest-side, rgba(77, 132, 255, 0.22), transparent 70%);
+}
+
+/* Scroll reveal: only hidden when scripting is available. */
+@media (scripting: enabled) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Hero entrance */
 @keyframes settle {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -58,36 +95,89 @@ body {
   }
 }
 
-@keyframes disc-in {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.hero-name {
+.settle {
   animation: settle 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-.hero-sub {
-  animation: settle 0.8s 0.15s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+/* Blinking terminal caret */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 
-.hero-disc {
-  animation: disc-in 0.9s 0.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+.caret {
+  display: inline-block;
+  width: 0.55ch;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: blink 1.05s steps(1) infinite;
+}
+
+/* Slowly rotating dotted ring around the mascot */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ring-spin {
+  animation: spin 60s linear infinite;
+}
+
+.tilt {
+  --rx: 0deg;
+  --ry: 0deg;
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.25s ease-out;
+  will-change: transform;
+}
+
+/* Scrolling stack ticker */
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 38s linear infinite;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+/* Pulsing status dot */
+@keyframes ping-soft {
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.ping-soft {
+  animation: ping-soft 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .hero-name,
-  .hero-sub,
-  .hero-disc {
+  .settle,
+  .ring-spin,
+  .ticker-track,
+  .caret,
+  .ping-soft {
     animation: none;
+  }
+  .reveal,
+  .tilt {
+    transition: none;
   }
 }
