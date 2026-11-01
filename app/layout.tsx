@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "EXOH — Tony-onuoha Munachiso Osaretin",
   description:
     "Mechatronics Engineering student, technology enthusiast and creator of PrepUNIBEN.",
-  metadataBase: new URL("https://exoh-portfolio.vercel.app"),
+  metadataBase: new URL("https://aboutexoh.vercel.app"),
   icons: { icon: "/favicon.svg" },
 };
 

@@ -54,7 +54,7 @@ export default function Home() {
               <a
                 key={href}
                 href={href}
-                className="text-sm text-ink/70 transition hover:text-accent"
+                className="text-sm text-ink/70 transition hover:text-ink"
               >
                 {label}
               </a>
@@ -74,7 +74,7 @@ export default function Home() {
               Exoh
             </h1>
             <div className="hero-sub">
-              <p className="mt-6 text-lg font-semibold uppercase tracking-[0.18em] text-accent sm:text-xl">
+              <p className="mt-6 text-lg font-semibold uppercase tracking-[0.18em] text-ink/80 sm:text-xl">
                 Tony-onuoha Munachiso Osaretin
               </p>
               <p className="mt-2 text-base text-ink/65">
@@ -87,13 +87,13 @@ export default function Home() {
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#projects"
-                  className="bg-ink px-7 py-4 text-center text-sm font-semibold text-paper transition hover:bg-accent"
+                  className="bg-ink px-7 py-4 text-center text-sm font-semibold text-paper transition hover:bg-ink/75"
                 >
                   See my work
                 </a>
                 <a
                   href="#contact"
-                  className="border border-ink/25 px-7 py-4 text-center text-sm font-semibold transition hover:border-accent hover:text-accent"
+                  className="border border-ink/25 px-7 py-4 text-center text-sm font-semibold transition hover:border-ink hover:bg-ink hover:text-paper"
                 >
                   Get in touch
                 </a>
@@ -103,7 +103,7 @@ export default function Home() {
 
           <div className="hero-disc relative mx-auto w-full max-w-md lg:max-w-none">
             <div className="relative aspect-square w-full">
-              <div className="absolute inset-0 rounded-full bg-accent" />
+              <div className="absolute inset-0 rounded-full bg-ink" />
               <div className="absolute inset-[7%] overflow-hidden rounded-full bg-slate ring-8 ring-paper">
                 <Image
                   src="/mascot.png"
@@ -143,7 +143,7 @@ export default function Home() {
               <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-t border-ink/15 pt-8">
                 {interests.map((interest) => (
                   <li key={interest} className="flex items-center gap-3 text-sm font-medium">
-                    <span className="h-2 w-2 rounded-full bg-accent" />
+                    <span className="h-2 w-2 rounded-full bg-ink" />
                     {interest}
                   </li>
                 ))}
@@ -161,9 +161,9 @@ export default function Home() {
                 Products I design, build and ship end to end.
               </p>
             </div>
-            <article className="grid overflow-hidden bg-accent text-white lg:grid-cols-[1fr_0.9fr]">
+            <article className="grid overflow-hidden border border-ink bg-white text-ink lg:grid-cols-[1fr_0.9fr]">
               <div className="flex min-h-80 flex-col justify-between p-8 sm:p-12">
-                <p className="text-sm font-medium text-white/75">Creator</p>
+                <p className="text-sm font-medium text-ink/65">Creator</p>
                 <p className="display text-[clamp(4rem,11vw,8rem)]">
                   Prep
                   <br />
@@ -186,7 +186,7 @@ export default function Home() {
                   href="https://prepuniben.vercel.app"
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-8 inline-flex w-fit bg-accent px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white hover:text-ink"
+                  className="mt-8 inline-flex w-fit bg-white px-6 py-3.5 text-sm font-semibold text-ink transition hover:bg-white/80"
                 >
                   Visit PrepUNIBEN
                 </a>
@@ -222,7 +222,7 @@ export default function Home() {
                     {group.items.map((item) => (
                       <li
                         key={item}
-                        className="border border-white/15 px-3 py-2 text-sm text-white/85 transition hover:border-accent hover:bg-accent"
+                        className="border border-white/15 px-3 py-2 text-sm text-white/85 transition hover:border-white hover:bg-white hover:text-ink"
                       >
                         {item}
                       </li>
@@ -233,7 +233,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-16 border-t border-accent pt-8">
+            <div className="mt-16 border-t border-white/40 pt-8">
               <h3 className="text-lg font-semibold">Currently exploring</h3>
               <ul className="mt-5 flex flex-wrap gap-2">
                 {exploring.map((item) => (
@@ -291,7 +291,7 @@ export default function Home() {
                 href="https://github.com/ceoexoh"
                 target="_blank"
                 rel="noreferrer"
-                className="bg-ink px-8 py-4 text-center text-sm font-semibold text-paper transition hover:bg-accent"
+                className="bg-ink px-8 py-4 text-center text-sm font-semibold text-paper transition hover:bg-ink/75"
               >
                 GitHub
               </a>
@@ -299,7 +299,7 @@ export default function Home() {
                 href="https://x.com/exohobviously"
                 target="_blank"
                 rel="noreferrer"
-                className="border border-ink/25 px-8 py-4 text-center text-sm font-semibold transition hover:border-accent hover:text-accent"
+                className="border border-ink/25 px-8 py-4 text-center text-sm font-semibold transition hover:border-ink hover:bg-ink hover:text-paper"
               >
                 X (Twitter)
               </a>

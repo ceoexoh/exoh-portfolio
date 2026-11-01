@@ -4,8 +4,6 @@
   --paper: #f5f5f2;
   --paper-2: #ecece7;
   --ink: #121413;
-  --accent: #1a56d6;
-  --accent-deep: #123f94;
   --slate: #35405a;
   --night: #101312;
 }
@@ -14,8 +12,6 @@
   --color-paper: var(--paper);
   --color-paper-2: var(--paper-2);
   --color-ink: var(--ink);
-  --color-accent: var(--accent);
-  --color-accent-deep: var(--accent-deep);
   --color-slate: var(--slate);
   --color-night: var(--night);
   --font-sans: var(--font-body);
@@ -33,7 +29,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid currentColor;
   outline-offset: 3px;
 }
 
