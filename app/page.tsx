@@ -322,16 +322,26 @@ export default function Home() {
               </h2>
               <p className="mt-8 max-w-lg text-lg leading-8 text-muted">
                 I&apos;m open to internships, collaborations and conversations about engineering
-                and software. The quickest way to reach me is on GitHub or X.
+                and software. Reach me on LinkedIn, GitHub or X.
               </p>
             </Reveal>
 
-            <Reveal className="mt-10 flex flex-col gap-3 sm:flex-row" delay={100}>
+            <Reveal className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap" delay={100}>
+              <a
+                href="https://www.linkedin.com/in/munachiso-tony-onuoha-015b1a43b/"
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-accent px-8 text-sm font-semibold text-white transition hover:brightness-110"
+              >
+                LinkedIn
+                <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+                <span className="sr-only">(opens in a new tab)</span>
+              </a>
               <a
                 href="https://github.com/ceoexoh"
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-ink px-8 text-sm font-semibold text-canvas transition hover:bg-ink/85"
+                className="group inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-rule px-8 text-sm font-semibold transition hover:border-ink/50 hover:bg-panel"
               >
                 GitHub · ceoexoh
                 <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
