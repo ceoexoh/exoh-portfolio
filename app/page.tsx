@@ -348,12 +348,12 @@ export default function Home() {
                 <span className="sr-only">(opens in a new tab)</span>
               </a>
               <a
-                href="https://x.com/exohobviously"
+                href="https://x.com/tonyonuoha_MO"
                 target="_blank"
                 rel="noreferrer"
                 className="group inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-rule px-8 text-sm font-semibold transition hover:border-ink/50 hover:bg-panel"
               >
-                X · @exohobviously
+                X · @tonyonuoha_MO
                 <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
                 <span className="sr-only">(opens in a new tab)</span>
               </a>
